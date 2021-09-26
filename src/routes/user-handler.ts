@@ -53,7 +53,7 @@ const handleGrantRole = async (
     const data = req.body;
     const request: UserParam = {
       email: data.email,
-      role: data.role,
+      role: "admin",
     };
 
     if (!request.email) {
