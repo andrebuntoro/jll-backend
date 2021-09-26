@@ -8,7 +8,7 @@ import { checkIfAuthenticated, checkIfAdmin } from "../firebaseMiddleware";
 export const register = (app: express.Application): express.Application => {
   app.get(
     "/jll-backend/cat",
-    // checkIfAuthenticated,
+    checkIfAuthenticated,
     async (_, res: express.Response) => {
       return catHandler.handleGetRandomCat(res);
     }
@@ -16,7 +16,7 @@ export const register = (app: express.Application): express.Application => {
 
   app.get(
     "/jll-backend/cat/breeds",
-    checkIfAuthenticated,
+    checkIfAdmin,
     (_, res: express.Response) => {
       return catHandler.handleGetCatBreeds(res);
     }

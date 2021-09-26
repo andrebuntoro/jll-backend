@@ -45,7 +45,7 @@ const getCatBreeds = (): Promise<Array<Breed>> => {
       for (let i in data) {
         let breed: Breed = {
           id: String(data[i].id),
-          name: String(data[i].name),
+          label: String(data[i].name),
         };
         breeds.push(breed);
       }

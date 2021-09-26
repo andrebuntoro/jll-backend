@@ -1,5 +1,5 @@
 type Breed = {
-  name: string;
+  label: string;
   id: string;
 };
 
