@@ -1,12 +1,42 @@
 import catRepository from "../repository/cat";
-import { Breed } from "../param/cat";
+import { Breed, Cat } from "../param/cat";
 
-const getRandomCat = (): Promise<any> => {
-  return catRepository.getRandomCat();
+const getRandomCat = (): Promise<Array<Cat>> => {
+  return new Promise(async (resolve, reject) => {
+    try {
+      let cats: Array<Cat> = [];
+      const bs = await catRepository.getRandomCat();
+      const data = bs.data;
+      for (let i in data) {
+        let cat: Cat = {
+          url: String(data[i].url),
+        };
+        cats.push(cat);
+      }
+      resolve(cats);
+    } catch (err) {
+      reject(err);
+    }
+  });
 };
 
-const getCatByBreed = (breedId: string): Promise<any> => {
-  return catRepository.getCatByBreed(breedId);
+const getCatByBreed = (breedId: string): Promise<Array<Cat>> => {
+  return new Promise(async (resolve, reject) => {
+    try {
+      let cats: Array<Cat> = [];
+      const bs = await catRepository.getCatByBreed(breedId);
+      const data = bs.data;
+      for (let i in data) {
+        let cat: Cat = {
+          url: String(data[i].url),
+        };
+        cats.push(cat);
+      }
+      resolve(cats);
+    } catch (err) {
+      reject(err);
+    }
+  });
 };
 
 const getCatBreeds = (): Promise<Array<Breed>> => {

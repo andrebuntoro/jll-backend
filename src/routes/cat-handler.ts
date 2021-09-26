@@ -24,7 +24,7 @@ const handleGetCatByBreed = async (
   res: express.Response
 ): Promise<express.Response> => {
   try {
-    const breedId = req.params.breedId;
+    const breedId = String(req.query.breed_id);
 
     if (!breedId) {
       const errMsg = "breedId can not be empty";

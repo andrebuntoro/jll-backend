@@ -3,4 +3,8 @@ type Breed = {
   id: string;
 };
 
-export { Breed };
+type Cat = {
+  url: string;
+};
+
+export { Breed, Cat };
